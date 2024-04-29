@@ -1,6 +1,7 @@
 package sg.edu.np.mad.madpractical2;
 
 import android.os.Bundle;
+import android.view.View;
 import android.view.textservice.TextInfo;
 import android.widget.Button;
 import android.widget.TextView;
@@ -34,6 +35,19 @@ public class MainActivity extends AppCompatActivity {
         tvDescription.setText(user.description);
         btnFollow.setText("Follow");
 
+        btnFollow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                if (user.followed) {
+                    user.followed = false;
+                    btnFollow.setText("Follow");
+                }
+                else {
+                    user.followed = true;
+                    btnFollow.setText("Unfollow");
+                }
+            }
+        });
     }
 }
 
